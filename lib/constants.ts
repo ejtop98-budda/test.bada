@@ -51,7 +51,7 @@ export const VEHICLE_DATABASE = {
         acceleration_0_100: 2.4,
         top_speed: 420,
       },
-      imageUrl: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=800&q=80',
+      imageUrl: 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 'tesla_model_s_plaid',
@@ -69,7 +69,7 @@ export const VEHICLE_DATABASE = {
         acceleration_0_100: 2.15,
         top_speed: 322,
       },
-      imageUrl: 'https://images.unsplash.com/photo-1617469767537-b85cb00bafbb?w=800&q=80',
+      imageUrl: 'https://images.pexels.com/photos/5592343/pexels-photo-5592343.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 'lamborghini_aventador',
@@ -87,7 +87,7 @@ export const VEHICLE_DATABASE = {
         acceleration_0_100: 2.9,
         top_speed: 350,
       },
-      imageUrl: 'https://images.unsplash.com/photo-1578693846526-b42dd0773add?w=800&q=80',
+      imageUrl: 'https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ] as CarSpec[],
 
@@ -110,7 +110,7 @@ export const VEHICLE_DATABASE = {
         max_speed: 2124,
         runway_length: 2400,
       },
-      imageUrl: 'https://images.unsplash.com/photo-1552966843-e3e08ec6e95a?w=800&q=80',
+      imageUrl: 'https://images.pexels.com/photos/1161547/pexels-photo-1161547.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 'f15_eagle',
@@ -130,7 +130,7 @@ export const VEHICLE_DATABASE = {
         max_speed: 2663,
         runway_length: 1500,
       },
-      imageUrl: 'https://images.unsplash.com/photo-1544027993-37dbf63cf174?w=800&q=80',
+      imageUrl: 'https://images.pexels.com/photos/2556269/pexels-photo-2556269.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ] as JetSpec[],
 };
