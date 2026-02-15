@@ -1,0 +1,65 @@
+/* styles/globals.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface-dark/60 backdrop-blur-md border border-white/10;
+  }
+
+  .tech-border {
+    @apply relative;
+  }
+
+  .tech-border::before {
+    content: '';
+    @apply absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-primary;
+  }
+
+  .tech-border::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-primary;
+  }
+
+  .carbon-fiber {
+    background-image: radial-gradient(circle, #222 20%, transparent 20%),
+      radial-gradient(circle, #222 20%, transparent 20%);
+    background-color: #101922;
+    background-position: 0 0, 4px 4px;
+    background-size: 8px 8px;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px rgba(13, 127, 242, 0.5), 0 0 20px rgba(13, 127, 242, 0.3);
+  }
+
+  .neon-text-glow {
+    text-shadow: 0 0 5px rgba(13, 127, 242, 0.8);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101922;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}
