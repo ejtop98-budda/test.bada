@@ -27,8 +27,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "NEXT_PUBLIC_APP_NAME": "@aero-drag-showdown"
-  }
+  ]
 }
