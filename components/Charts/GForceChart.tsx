@@ -30,7 +30,7 @@ export function GForceChart({ data1_time, data1_gforce, data1_name, data2_gforce
   }));
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-64">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
           <CartesianGrid

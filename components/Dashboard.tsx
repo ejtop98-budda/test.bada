@@ -9,6 +9,9 @@ import { VEHICLE_DATABASE } from '@/lib/constants';
 import { CarSpec, JetSpec, EnvironmentConfig } from '@/lib/types';
 import { GlassPanel } from './shared/GlassPanel';
 
+// Fallback placeholder image
+const PLACEHOLDER_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23141820" width="800" height="600"/%3E%3Ctext x="400" y="300" text-anchor="middle" fill="%23666" font-size="40" dy=".3em"%3EImage Unavailable%3C/text%3E%3C/svg%3E';
+
 export function Dashboard() {
   const router = useRouter();
   const [vehicle1, setVehicle1] = useState<CarSpec | JetSpec>(VEHICLE_DATABASE.cars[0]);
@@ -126,7 +129,16 @@ export function Dashboard() {
                   const v = allVehicles.find((v) => v.id === e.target.value);
                   if (v) setVehicle1(v);
                 }}
-                className="w-full bg-surface-dark/90 border border-white/20 text-white rounded-lg px-4 py-3 appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors cursor-pointer text-sm tracking-wide uppercase font-bold text-right"
+                className="w-full bg-surface-dark/90 border border-white/20 text-white rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors cursor-pointer text-sm tracking-wide uppercase font-bold text-right"
+                style={{
+                  appearance: 'none',
+                  WebkitAppearance: 'none',
+                  backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPositionX: 'calc(100% - 0.75rem)',
+                  backgroundPositionY: 'center',
+                  paddingRight: '2.5rem',
+                }}
               >
                 {allVehicles.map((v) => (
                   <option key={v.id} value={v.id}>
@@ -134,22 +146,21 @@ export function Dashboard() {
                   </option>
                 ))}
               </select>
-              <span className="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
-                expand_more
-              </span>
             </div>
           </div>
 
           <div className="flex-1 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10"></div>
-            {vehicle1.imageUrl && (
-              <Image
-                src={vehicle1.imageUrl}
-                alt={vehicle1.name}
-                fill
-                className="object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700"
-              />
-            )}
+            <Image
+              src={vehicle1.imageUrl || PLACEHOLDER_IMAGE}
+              alt={vehicle1.name}
+              fill
+              priority
+              onError={(e) => {
+                e.currentTarget.src = PLACEHOLDER_IMAGE;
+              }}
+              className="object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700"
+            />
           </div>
 
           <div className="relative z-20 bg-surface-dark border-t border-white/10 p-6 grid grid-cols-3 gap-4">
@@ -336,7 +347,16 @@ export function Dashboard() {
                   const v = allVehicles.find((v) => v.id === e.target.value);
                   if (v) setVehicle2(v);
                 }}
-                className="w-full bg-surface-dark/90 border border-white/20 text-white rounded-lg px-4 py-3 appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors cursor-pointer text-sm tracking-wide uppercase font-bold text-right"
+                className="w-full bg-surface-dark/90 border border-white/20 text-white rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors cursor-pointer text-sm tracking-wide uppercase font-bold text-right"
+                style={{
+                  appearance: 'none',
+                  WebkitAppearance: 'none',
+                  backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPositionX: 'calc(100% - 0.75rem)',
+                  backgroundPositionY: 'center',
+                  paddingRight: '2.5rem',
+                }}
               >
                 {allVehicles.map((v) => (
                   <option key={v.id} value={v.id}>
@@ -344,22 +364,21 @@ export function Dashboard() {
                   </option>
                 ))}
               </select>
-              <span className="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
-                expand_more
-              </span>
             </div>
           </div>
 
           <div className="flex-1 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10"></div>
-            {vehicle2.imageUrl && (
-              <Image
-                src={vehicle2.imageUrl}
-                alt={vehicle2.name}
-                fill
-                className="object-cover object-center scale-x-[-1] opacity-80 group-hover:scale-x-[-1.05] group-hover:scale-y-[1.05] transition-transform duration-700"
-              />
-            )}
+            <Image
+              src={vehicle2.imageUrl || PLACEHOLDER_IMAGE}
+              alt={vehicle2.name}
+              fill
+              priority
+              onError={(e) => {
+                e.currentTarget.src = PLACEHOLDER_IMAGE;
+              }}
+              className="object-cover object-center scale-x-[-1] opacity-80 group-hover:scale-x-[-1.05] group-hover:scale-y-[1.05] transition-transform duration-700"
+            />
           </div>
 
           <div className="relative z-20 bg-surface-dark border-t border-white/10 p-6 grid grid-cols-3 gap-4">
